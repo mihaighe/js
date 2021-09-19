@@ -1,0 +1,112 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.section {
+  background-color: #343434;
+  width: 100vw;
+  height: 50vh;
+  border-left: 4rem solid #5fb27c;
+  display: flex;
+  align-items: center;
+}
+
+.section-white {
+  background-color: #f5f5f5;
+  justify-content: flex-end;
+}
+
+.section-black {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container {
+  min-width: 42rem;
+  height: 4rem;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.binary-container {
+  margin-left: 135px;
+  background-color: #f5f5f5;
+}
+
+.dec-container {
+  margin-right: 135px;
+  background-color: #343434;
+}
+
+.tag {
+  background-color: #5fb27c;
+  height: 100%;
+  width: fit-content;
+
+  font-family: "Righteous", cursive;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+
+  border-radius: 10px 0px 0px 10px;
+  padding: 0px 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  outline: none;
+  border: none;
+  width: 100%;
+
+  font-family: "Righteous", cursive;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+}
+
+.binary-container input {
+  background-color: #f5f5f5;
+}
+
+.dec-container input {
+  background-color: #343434;
+  color: #f5f5f5;
+}
+
+.error {
+  color: #f5f5f5;
+  font-family: "Righteous", cursive;
+  font-size: 1.5rem;
+  margin-left: 135px;
+}
+
+@media (max-width: 950px) {
+  .section {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .binary-container,
+  .dec-container,
+  .error {
+    margin: 0;
+  }
+
+  .container {
+    margin: 20px;
+    min-width: 16rem;
+  }
+}
+
