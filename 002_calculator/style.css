@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Forum', cursive;
+}
+
+body {
+  background-color: rgb(37, 37, 37);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  background-image: url('https://images.unsplash.com/photo-1621619856624-42fd193a0661?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(8px);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.container {
+  width: 280px;
+  box-shadow: 5px 5px 5px black;
+}
+
+.screen {
+  background-color: #fefefe;
+  height: 510px;
+}
+
+.action {
+  height: 70px;
+  background: linear-gradient(
+    45deg,
+    rgba(236, 127, 67, 1) 12%,
+    rgba(194, 76, 41, 1) 74%
+  );
+  font-size: 35px;
+  text-align: center;
+  padding-top: 20px;
+  color: #fefefe;
+  cursor: pointer;
+  user-select: none;
+}
+
+.action:hover {
+  background: linear-gradient(
+    45deg,
+    rgb(236, 106, 36) 12%,
+    rgb(199, 58, 15) 74%
+  );
+}
+
+.action:active {
+  background: linear-gradient(45deg, rgb(216, 85, 14) 12%, rgb(129, 34, 5) 74%);
+}
+
+.calculator {
+  position: absolute;
+  background: linear-gradient(
+    180deg,
+    rgba(96, 101, 119, 0.95) 24%,
+    rgba(52, 55, 63, 0.95) 84%
+  );
+  height: 400px;
+  width: 320px;
+  margin-top: 30px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  padding: 0px 20px 10px 20px;
+
+  box-shadow: 0px 10px 20px black;
+}
+
+.item {
+  text-align: center;
+  padding-top: 30px;
+  font-size: 21px;
+  color: #fefefe;
+  transition: 0.2s;
+}
+
+.item:hover {
+  cursor: pointer;
+  user-select: none;
+  background-color: rgba(57, 59, 66, 0.95);
+}
+
+.item:active {
+  background-color: rgb(40, 39, 44);
+}
+
+.screen {
+  text-align: right;
+  padding-right: 10px;
+  padding-top: 30px;
+}
+
+.main {
+  font-size: 60px;
+  display: flex;
+  justify-content: flex-end;
+  white-space: nowrap;
+  overflow: hidden;
+}
