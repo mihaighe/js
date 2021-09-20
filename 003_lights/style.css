@@ -1,0 +1,201 @@
+:root {
+  --color-1: #bc9f62;
+  --color-2: #fbe9a7;
+  --play-state: running;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.image {
+  background-image: url('https://images.unsplash.com/photo-1513297887119-d46091b24bfa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.line {
+  position: absolute;
+  z-index: 1;
+}
+
+.bulb {
+  position: relative;
+}
+
+.light {
+  position: absolute;
+  height: 6vw;
+  width: 6vw;
+  border-radius: 50% 50% 0% 100% / 50% 100% 0% 50%;
+  z-index: 1;
+  top: 1vw;
+  left: -0.5vw;
+  animation-duration: 1s;
+  animation-play-state: var(--play-state);
+  animation-iteration-count: infinite;
+}
+
+.base {
+  position: absolute;
+  width: 4vw;
+  height: 3vw;
+  border-radius: 15px;
+  background-color: black;
+  z-index: 0;
+}
+
+.one {
+  top: 16vw;
+  left: 9.5vw;
+}
+
+.zero > .light {
+  background-color: var(--color-1);
+  box-shadow: 0.5vw 0.5vw 01vw var(--color-1);
+  animation-name: light1;
+}
+
+.zero {
+  top: 12.5vw;
+  left: 0.6vw;
+}
+
+.one > .light {
+  background-color: var(--color-2);
+  box-shadow: 0.5vw 0.5vw 02vw var(--color-2);
+  animation-name: light2;
+}
+
+.two {
+  top: 21vw;
+  left: 22vw;
+}
+
+.two > .light {
+  background-color: var(--color-1);
+  box-shadow: 0.5vw 0.5vw 01vw var(--color-1);
+  animation-name: light1;
+}
+
+.three {
+  top: 22.5vw;
+  left: 35vw;
+}
+
+.three > .light {
+  background-color: var(--color-2);
+  box-shadow: 0.5vw 0.5vw 01vw var(--color-2);
+  animation-name: light2;
+}
+
+.four {
+  top: 16.5vw;
+  left: 49vw;
+}
+
+.four > .light {
+  background-color: var(--color-1);
+  box-shadow: 0.5vw 0.5vw 01vw var(--color-1);
+  animation-name: light1;
+}
+
+.five {
+  top: 22.5vw;
+  left: 58vw;
+}
+
+.five > .light {
+  background-color: var(--color-2);
+  box-shadow: 0.5vw 0.5vw 02vw var(--color-2);
+  animation-name: light2;
+}
+
+.six {
+  top: 20.5vw;
+  left: 69vw;
+}
+
+.six > .light {
+  background-color: var(--color-1);
+  box-shadow: 0.5vw 0.5vw 01vw var(--color-1);
+  animation-name: light1;
+}
+
+.seven {
+  top: 24.5vw;
+  left: 82vw;
+}
+
+.seven > .light {
+  background-color: var(--color-2);
+  box-shadow: 0.5vw 0.5vw 01vw var(--color-2);
+  animation-name: light2;
+}
+
+.eight {
+  top: 17.5vw;
+  left: 93vw;
+}
+
+.eight > .light {
+  background-color: var(--color-1);
+  box-shadow: 0.5vw 0.5vw 01vw var(--color-1);
+  animation-name: light1;
+}
+
+.button-container {
+  padding-top: 80vh;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+
+button {
+  padding: 0.5vw 3vw;
+  margin: 1vw;
+  background-color: var(--color-2);
+  box-shadow: 5px 5px 5px black;
+  cursor: pointer;
+  outline: none;
+}
+
+@keyframes light1 {
+  0% {
+    background-color: var(--color-1);
+  }
+
+  50% {
+    background-color: var(--color-2);
+  }
+
+  100% {
+    background-color: var(--color-1);
+  }
+}
+
+@keyframes light2 {
+  0% {
+    background-color: var(--color-2);
+  }
+
+  50% {
+    background-color: var(--color-1);
+  }
+
+  100% {
+    background-color: var(--color-2);
+  }
+}
