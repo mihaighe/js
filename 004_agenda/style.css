@@ -26,6 +26,7 @@ body {
 #summary-pane > div {
   text-align: center;
   cursor: pointer;
+  font-size: 20px;
 }
 
 #summary-pane > div:hover {
@@ -39,7 +40,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 26px;
+  font-size: 30px;
   margin: 15vw;
   border: 4px solid black;
 }
