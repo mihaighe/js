@@ -5,3 +5,4 @@
 | Calculator                                              | [link](https://calculator-nine-rust.vercel.app/) |
 | Christmas Lights                                        | [link](https://mihaighe-lights.netlify.app)      |
 | Agenda                                                  | [link](https://mihaighe-agenda.netlify.app/)     |
+| Colors                                                  | [link](https://mihaighe-colors.netlify.app/)     |
