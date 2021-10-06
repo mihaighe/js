@@ -1,0 +1,357 @@
+:root {
+  --color-1: #875cff;
+  --color-2: #7d53f0;
+  --color-3: #663bda;
+  --color-4: #532ac5;
+  --color-5: #3a1996;
+  --color-6: #29116b;
+  --color-7: #170941;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Rampart One', cursive;
+}
+
+body {
+  display: flex;
+}
+
+body > div {
+  height: 100vh;
+  width: 33.33%;
+}
+
+.color-input-container {
+  flex-direction: column;
+  position: absolute;
+  width: 100vw;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-bottom: 60px;
+}
+
+.colors {
+  display: flex;
+  align-items: center;
+}
+
+.symbol {
+  font-size: 40px;
+}
+
+input {
+  height: 80px;
+  width: 60px;
+  border: none;
+  margin: 10px;
+  text-align: center;
+  outline: none;
+  font-size: 30px;
+  font-weight: bold;
+  box-shadow: 3px 3px 5px black;
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.red-input:hover {
+  background-color: rgb(199, 46, 46);
+}
+
+.green-input:hover {
+  background-color: rgb(27, 94, 27);
+}
+
+.blue-input:hover {
+  background-color: rgb(42, 70, 199);
+}
+
+#box-1 {
+  animation-name: box1;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+#box-2 {
+  animation-name: box2;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+#box-3 {
+  animation-name: box3;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+#box-4 {
+  animation-name: box4;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+#box-5 {
+  animation-name: box5;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+#box-6 {
+  animation-name: box6;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+#box-7 {
+  animation-name: box7;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes box1 {
+  0% {
+    background-color: var(--color-1);
+  }
+
+  14% {
+    background-color: var(--color-2);
+  }
+
+  28% {
+    background-color: var(--color-3);
+  }
+
+  42% {
+    background-color: var(--color-4);
+  }
+
+  56% {
+    background-color: var(--color-5);
+  }
+
+  70% {
+    background-color: var(--color-6);
+  }
+
+  84% {
+    background-color: var(--color-7);
+  }
+
+  100% {
+    background-color: var(--color-1);
+  }
+}
+
+@keyframes box2 {
+  0% {
+    background-color: var(--color-2);
+  }
+
+  14% {
+    background-color: var(--color-3);
+  }
+
+  28% {
+    background-color: var(--color-4);
+  }
+
+  42% {
+    background-color: var(--color-5);
+  }
+
+  56% {
+    background-color: var(--color-6);
+  }
+
+  70% {
+    background-color: var(--color-7);
+  }
+
+  84% {
+    background-color: var(--color-1);
+  }
+
+  100% {
+    background-color: var(--color-2);
+  }
+}
+
+@keyframes box3 {
+  0% {
+    background-color: var(--color-3);
+  }
+
+  14% {
+    background-color: var(--color-4);
+  }
+
+  28% {
+    background-color: var(--color-5);
+  }
+
+  42% {
+    background-color: var(--color-6);
+  }
+
+  56% {
+    background-color: var(--color-7);
+  }
+
+  70% {
+    background-color: var(--color-1);
+  }
+
+  84% {
+    background-color: var(--color-2);
+  }
+
+  100% {
+    background-color: var(--color-3);
+  }
+}
+
+@keyframes box4 {
+  0% {
+    background-color: var(--color-4);
+  }
+
+  14% {
+    background-color: var(--color-5);
+  }
+
+  28% {
+    background-color: var(--color-6);
+  }
+
+  42% {
+    background-color: var(--color-7);
+  }
+
+  56% {
+    background-color: var(--color-1);
+  }
+
+  70% {
+    background-color: var(--color-2);
+  }
+
+  84% {
+    background-color: var(--color-3);
+  }
+
+  100% {
+    background-color: var(--color-4);
+  }
+}
+
+@keyframes box5 {
+  0% {
+    background-color: var(--color-5);
+  }
+
+  14% {
+    background-color: var(--color-6);
+  }
+
+  28% {
+    background-color: var(--color-7);
+  }
+
+  42% {
+    background-color: var(--color-1);
+  }
+
+  56% {
+    background-color: var(--color-2);
+  }
+
+  70% {
+    background-color: var(--color-3);
+  }
+
+  84% {
+    background-color: var(--color-4);
+  }
+
+  100% {
+    background-color: var(--color-5);
+  }
+}
+
+@keyframes box6 {
+  0% {
+    background-color: var(--color-6);
+  }
+
+  14% {
+    background-color: var(--color-7);
+  }
+
+  28% {
+    background-color: var(--color-1);
+  }
+
+  42% {
+    background-color: var(--color-2);
+  }
+
+  56% {
+    background-color: var(--color-3);
+  }
+
+  70% {
+    background-color: var(--color-4);
+  }
+
+  84% {
+    background-color: var(--color-5);
+  }
+
+  100% {
+    background-color: var(--color-6);
+  }
+}
+
+@keyframes box7 {
+  0% {
+    background-color: var(--color-7);
+  }
+
+  14% {
+    background-color: var(--color-1);
+  }
+
+  28% {
+    background-color: var(--color-2);
+  }
+
+  42% {
+    background-color: var(--color-3);
+  }
+
+  56% {
+    background-color: var(--color-4);
+  }
+
+  70% {
+    background-color: var(--color-5);
+  }
+
+  84% {
+    background-color: var(--color-6);
+  }
+
+  100% {
+    background-color: var(--color-7);
+  }
+}
