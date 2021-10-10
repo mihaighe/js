@@ -25,7 +25,10 @@ body {
   height: 60px;
   font-size: 30px;
   padding-bottom: 10px;
-  margin: 50px;
+  position: absolute;
+  bottom: 11vh;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .app-container {
@@ -37,6 +40,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.countdown-container {
+  margin: 100px;
 }
 
 .objects {
@@ -52,6 +59,9 @@ body {
   background-color: #a95219;
   width: 390px;
   height: 25px;
+  font-weight: bold;
+  padding-right: 16px;
+  text-align: end;
 }
 
 .wood-support {
@@ -71,55 +81,42 @@ body {
 
 .clock {
   position: relative;
-  margin-left: 40px;
+  margin-left: 35px;
 }
 
 .clock-body {
   background: linear-gradient(
-    155deg,
+    159deg,
     rgba(40, 38, 38, 1) 51%,
     rgba(0, 0, 0, 1) 51%
   );
   position: absolute;
-  width: 130px;
-  height: 65px;
+  width: 170px;
+  height: 54px;
   border-radius: 10px;
   z-index: 1;
-  bottom: 0;
-}
-
-.clock-shadow {
-  background: linear-gradient(
-    155deg,
-    rgb(28 28 28 / 42%) 51%,
-    rgb(0 0 0 / 0%) 51%
-  );
-  position: absolute;
-  width: 130px;
-  height: 65px;
-  border-radius: 10px;
-  z-index: 3;
   bottom: 0;
 }
 
 .background-text {
   position: absolute;
   font-family: myfont;
-  z-index: 2;
-  color: rgba(76, 9, 9, 0.5);
-  font-size: 30px;
-  bottom: 15px;
-  left: 14px;
+  z-index: 1;
+  color: #df2f2f40;
+  font-size: 25px;
+  bottom: 13px;
+  left: 19px;
 }
 
-.red {
+.clock-time {
+  z-index: 2;
   color: red;
 }
 
 .calendar {
   position: absolute;
   bottom: 0;
-  left: 155px;
+  left: 192px;
 }
 
 .white-paper {
@@ -163,7 +160,7 @@ body {
   width: 15px;
   height: 15px;
   top: 11px;
-  left: 10px;
+  left: 9px;
   background-color: #e64d3d;
 }
 
@@ -177,7 +174,7 @@ body {
 .plant {
   position: absolute;
   bottom: 0;
-  right: 104px;
+  right: 77px;
 }
 
 .pot {
@@ -228,4 +225,68 @@ body {
   background-color: #166c16;
   bottom: 71px;
   left: 32px;
+}
+
+.fa-times {
+  position: relative;
+  left: 356px;
+  bottom: 70px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.fa-times:hover {
+  color: #c1392b;
+}
+
+.modal {
+  width: 42vh;
+  height: 24vh;
+  padding-top: 20px;
+  box-shadow: 0 0 10px black;
+  position: absolute;
+  background-color: #000000e6;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  pointer-events: none;
+  opacity: 0;
+  transition: all ease 0.5s;
+}
+
+input {
+  width: 23vh;
+  height: 4vh;
+  text-align: center;
+  outline: none;
+  border: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.date {
+  padding-left: 40px;
+}
+
+.message {
+  margin-top: 20px;
+}
+
+.far {
+  color: white;
+  font-size: 20px;
+  margin-top: 16px;
+  cursor: pointer;
+}
+
+.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.time {
+  padding-left: 23px;
+  margin-top: 20px;
 }
