@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-style: italic;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  background-color: #dfdfdf;
+}
