@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-style: italic;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dfdfdf;
+}
+
+.dollar {
+  width: 40vw;
+}
+
+.dollar-input {
+  position: absolute;
+  bottom: 40px;
+  right: 54px;
+  width: 140px;
+  height: 49px;
+  background: none;
+  font-family: fantasy;
+  font-size: 28px;
+  text-align: center;
+  border-radius: 10px;
+  outline: none;
+}
+
+.coin {
+  width: 130px;
+}
+
+.coin-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
