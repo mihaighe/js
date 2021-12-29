@@ -8,15 +8,44 @@
     <link rel="icon" href="src/icon.png" />
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <img src="./src/dollar.png" alt="dollarbills" class="dollar" />
-    <input type="text" class="dollar-input" />
-    <div class="container coin-container">
-      <img src="./src/quarter.png" alt="quarter" class="quarter coin" />
-      <img src="./src/dime.png" alt="dime" class="dime coin" />
-      <img src="./src/nickel.png" alt="nickel" class="nickel coin" />
-      <img src="./src/penny.png" alt="penny" class="penny coin" />
+    <div class="app-container">
+      <img src="./src/dollar.png" alt="dollarbills" class="dollar" />
+      <div class="input-container">
+        <span>I have</span>
+        <input type="text" class="dollar-input" />
+        <span class>$ worth of coins</span>
+      </div>
+      <span class="error-message">&nbsp</span>
+      <div class="container coins-container">
+        <div class="coin-container">
+          <img src="./src/quarter.png" alt="quarter" class="coin quarter" />
+          <div class="coin-value quarter-output">0</div>
+          <span>quarters</span>
+        </div>
+        <div class="coin-container">
+          <img src="./src/dime.png" alt="dime" class="coin dime" />
+          <div class="coin-value dime-output">0</div>
+          <span>dimes</span>
+        </div>
+        <div class="coin-container">
+          <img src="./src/nickel.png" alt="nickel" class="coin nickel" />
+          <div class="coin-value nickel-output">0</div>
+          <span>nickels</span>
+        </div>
+        <div class="coin-container">
+          <img src="./src/penny.png" alt="penny" class="coin penny" />
+          <div class="coin-value penny-output">0</div>
+          <span>pennies</span>
+        </div>
+      </div>
     </div>
   </body>
 </html>

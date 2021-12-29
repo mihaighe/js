@@ -2,43 +2,115 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-style: italic;
 }
 
 body {
   width: 100vw;
   height: 100vh;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items: center;
   background-color: #dfdfdf;
 }
 
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
 .dollar {
-  width: 40vw;
+  width: 35vw;
+}
+
+.input-container {
+  margin-top: -25px;
 }
 
 .dollar-input {
-  position: absolute;
-  bottom: 40px;
-  right: 54px;
   width: 140px;
-  height: 49px;
+  height: 38px;
   background: none;
-  font-family: fantasy;
+  font-family: 'Indie Flower', cursive;
   font-size: 28px;
   text-align: center;
-  border-radius: 10px;
   outline: none;
+  font-style: italic;
+  border: none;
+  border-bottom: 2px solid black;
+  margin-top: 20px;
 }
 
 .coin {
   width: 130px;
+  margin: 3px;
+  animation: linear;
+  animation-name: flip_animation;
+  animation-iteration-count: infinite;
+  transition: none;
+  animation-duration: 4s;
+}
+
+/* .coin-container:nth-child(2) {
+  margin: 50px;
+} */
+
+.quarter {
+  animation-delay: 0.75s;
+}
+
+.dime {
+  animation-delay: 0.2s;
+}
+
+.nickel {
+  animation-delay: 1.11s;
+}
+
+.penny {
+  animation-delay: 0.4s;
+}
+
+.coins-container {
+  display: flex;
+  margin-top: 15px;
+}
+
+span {
+  font-size: 20px;
+  font-style: normal;
+  font-style: italic;
 }
 
 .coin-container {
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coin-value {
+  font-size: 30px;
+  margin-top: -4px;
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+}
+
+@keyframes flip_animation {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.error-message {
+  padding-top: 10px;
+  color: white;
+}
+
+.error {
+  color: #af6b46;
+  font-weight: bold;
 }
