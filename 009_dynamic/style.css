@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-style: italic;
+}
+
+.app-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.upper-section {
+  position: absolute;
+  border-top: 50vh solid #ffa500;
+  border-left: 50vw solid #ffa500;
+  border-bottom: 50vh solid transparent;
+  border-right: 50vw solid transparent;
+}
+
+.custom-shape-divider {
+  position: absolute;
+  width: 120%;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: 17vh;
+}
+
+.custom-shape-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.custom-shape-divider .shape-fill {
+  fill: #ffffff;
+}
+
+.form-container {
+  z-index: 1;
+  font-size: 90px;
+}
