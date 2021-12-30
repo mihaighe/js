@@ -8,3 +8,5 @@
 | Colors                                                  | [link](https://mihaighe-colors.netlify.app/)     |
 | Countdown                                               | [link](https://mihaighe-countdown.netlify.app/)  |
 | JsonToCsv                                               | [link](https://mihaighe-jsontocsv.netlify.app/)  |
+| Dollars to Coins                                        | [link](https://mihaighe-dollars.netlify.app/)  |
+
