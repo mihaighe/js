@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
+:root {
+  --hex-size: 20vw;
+  --message-color: #dd8f00;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Comfortaa', cursive;
+}
+
+.app-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.upper-section {
+  z-index: -1;
+  position: absolute;
+  border-top: 50vh solid #ffa500;
+  border-left: 50vw solid #ffa500;
+  border-bottom: 50vh solid transparent;
+  border-right: 50vw solid transparent;
+}
+
+.custom-shape-divider {
+  z-index: -1;
+
+  position: absolute;
+  width: 120%;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: 17vh;
+}
+
+.custom-shape-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.custom-shape-divider .shape-fill {
+  fill: #ffffff;
+}
+
+.form-background {
+  position: absolute;
+  width: var(--hex-size);
+  height: calc(var(--hex-size) * 1.7);
+  border-radius: 1em/0.5em;
+  background: black;
+  opacity: 20%;
+}
+.form-background:before,
+.form-background:after {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  background: inherit;
+  content: '';
+}
+.form-background:before {
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+.form-background:after {
+  -webkit-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+}
+
+.form-container {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(var(--hex-size) * 2.1);
+}
+
+.user-icon {
+  position: relative;
+  width: 15vw;
+  height: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.outer-hex {
+  position: absolute;
+  width: calc(var(--hex-size) * 0.3);
+  height: calc(var(--hex-size) * 0.5);
+  border-radius: 1em/0.5em;
+  background: #3a352f;
+}
+.outer-hex:before,
+.outer-hex:after {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  background: inherit;
+  content: '';
+}
+.outer-hex:before {
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+.outer-hex:after {
+  -webkit-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+}
+
+.inner-hex {
+  position: absolute;
+  width: calc(var(--hex-size) * 0.27);
+  height: calc(var(--hex-size) * 0.45);
+  border-radius: 1em/0.5em;
+  background: #db8924;
+}
+.inner-hex:before,
+.inner-hex:after {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  background: inherit;
+  content: '';
+}
+.inner-hex:before {
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+.inner-hex:after {
+  -webkit-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+}
+
+.icon {
+  height: 7.2vw;
+  z-index: 1;
+}
+
+.sign-in {
+  font-size: 3vw;
+  font-weight: bold;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+}
+
+input {
+  width: 23vw;
+  height: 3vw;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+  font-size: 1vw;
+  font-weight: bold;
+}
+
+.label {
+  font-size: 1vw;
+  font-weight: 900;
+  margin: 0.25vw;
+  text-shadow: 0 0 black;
+}
+
+.label::after {
+  top: 1.6vw;
+  right: -3vw;
+  position: absolute;
+  content: '';
+  border-left: 1.5vw solid white;
+  border-right: 1.5vw solid transparent;
+  border-top: 1.5vw solid transparent;
+  border-bottom: 1.5vw solid transparent;
+}
+
+.label::before {
+  top: 1.6vw;
+  left: -3vw;
+  position: absolute;
+  content: '';
+  border-right: 1.5vw solid white;
+  border-left: 1.5vw solid transparent;
+  border-top: 1.5vw solid transparent;
+  border-bottom: 1.5vw solid transparent;
+}
+
+button {
+  width: 10vw;
+  height: 2.4vw;
+  margin-top: 1vw;
+  font-size: 1vw;
+  border: none;
+  font-weight: bold;
+  border-radius: 0.3vw;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ffa600d3;
+}
+
+button:active {
+  background-color: #ff9100;
+}
+
+.user-name-input-container {
+  position: relative;
+}
+
+.password-input-container {
+  position: relative;
+  margin-top: 1vw;
+}
+
+.message {
+  font-size: 1vw;
+  height: 1.5vw;
+  width: 23vw;
+  padding-top: 0.5vw;
+  padding-left: 0.3vw;
+  font-weight: bold;
+  color: var(--message-color);
+  text-shadow: 0 0 black;
+}

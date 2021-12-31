@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ProjectNameHere</title>
-    <link rel="icon" href="src/icon.png" />
+    <title>Dynamic Css Variables</title>
+    <link rel="icon" href="src/user.png" />
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
   </head>
@@ -35,7 +35,30 @@
           ></path>
         </svg>
       </div>
-      <div class="form-container">Cașotă</div>
+      <div class="form-background"></div>
+      <form class="form-container">
+        <div class="user-icon">
+          <div class="outer-hex"></div>
+          <div class="inner-hex"></div>
+          <img src="./src/user.png" alt="user" class="icon" />
+        </div>
+        <div class="sign-in">Sign In</div>
+        <div class="user-name-input-container">
+          <div class="label">User</div>
+          <input
+            type="text"
+            placeholder="mihai.md16@gmail.com"
+            class="user-name"
+          />
+        </div>
+        <div class="password-input-container">
+          <div class="label">Password</div>
+          <input type="password" placeholder="mystrongpass" class="password" />
+        </div>
+        <div class="message"></div>
+        <button type="submit" class="login">Login</button>
+        <button class="cancel">Cancel</button>
+      </form>
     </div>
   </body>
 </html>
