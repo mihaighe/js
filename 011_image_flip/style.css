@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #333;
+  overflow: hidden;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+
+  display: grid;
+  place-content: center;
+  grid-template-columns: 300px 300px;
+  gap: 30px;
+}
+
+.box {
+  background-color: #333;
+  height: 200px;
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-family: sans-serif;
+}
+
+.image {
+  border: 3px solid black;
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
+.arrows {
+  height: 260px;
+  line-height: 260px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  display: none;
+}
+
+.arrows:hover {
+  display: block;
+}
+
+.image:hover + .arrows {
+  display: block;
+}
+
+.image-container {
+  position: relative;
+}
+
+.fas {
+  color: white;
+  font-size: 40px;
+  text-shadow: 3px 3px 5px black;
+  cursor: pointer;
+}
+
+.fas:hover {
+  color: gray;
+}
+
+.fas:active {
+  color: black;
+}
+
+.fa-arrow-up {
+  position: absolute;
+  top: 20px;
+  left: 130px;
+}
+
+.fa-arrow-down {
+  position: absolute;
+  bottom: 20px;
+  left: 130px;
+}
+
+.fa-arrow-left {
+  position: absolute;
+  left: 20px;
+  top: 110px;
+}
+
+.fa-arrow-right {
+  position: absolute;
+  right: 20px;
+  top: 110px;
+}
+
+.road-sign1,
+.road-sign2,
+.road-sign3,
+.road-sign4 {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: -1000px;
+  animation: linear;
+  animation-name: animation1;
+
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+.road-sign2 {
+  top: 150px;
+  transform: rotate(-200deg);
+  animation-delay: 4s;
+}
+
+.road-sign3 {
+  top: 550px;
+  transform: rotate(-180deg);
+  animation-delay: 1.5s;
+}
+
+.road-sign4 {
+  top: 0px;
+  transform: rotate(-270deg);
+  animation-delay: 3s;
+}
+
+@keyframes animation1 {
+  0% {
+    left: -1000px;
+  }
+
+  20%,
+  100% {
+    left: 2000px;
+    transform: rotate(350deg);
+  }
+}
