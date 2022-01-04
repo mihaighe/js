@@ -1,42 +1,26 @@
-input = document.querySelector('.binary-input');
-error = document.querySelector('.error');
-decimalInput = document.querySelector('.dec-input');
+const binaryInput = document.querySelector('.binary-input');
+const decimalInput = document.querySelector('.decimal-input');
+const errorMessage = document.querySelector('.error');
 
-binaryString = '';
-pastLength = 0;
+const convert = () => {
+  let binaryString = binaryInput.value;
+  let lastCharacter = binaryString.slice(-1);
 
-decimalConvert = (binaryString) => {
-  if (binaryString != '') {
-    decimalString = parseInt(binaryString, 2);
-    decimalInput.value = decimalString;
-  } else {
+  // If input is empty, clear interface and stop execution
+  if (lastCharacter == '') {
+    errorMessage.innerText = 'Enter a base 2 number';
     decimalInput.value = '';
+    return;
   }
-};
 
-validate = (string) => {
-  if (string.length > pastLength) {
-    character = string.slice(-1);
-
-    character.includes('1') || character.includes('0')
-      ? ((binaryString = binaryString + character),
-        (error.innerText = 'Enter a base 2 number'))
-      : (error.innerText = `"${character}" is not a valid input`);
-
-    input.value = binaryString;
-    pastLength = binaryString.length;
+  // If last string character is not 0 or 1, remove it from the input value and show error
+  if (lastCharacter.includes('1') || lastCharacter.includes('0')) {
+    decimalInput.value = parseInt(binaryString, 2);
+    errorMessage.innerText = 'Enter a base 2 number';
   } else {
-    error.innerText = 'Enter a base 2 number';
-    binaryString = string;
-    input.value = string;
-    pastLength = string.length;
+    errorMessage.innerText = `"${lastCharacter}" is not a valid input`;
+    binaryInput.value = binaryString.slice(0, -1);
   }
-  decimalConvert(binaryString);
 };
 
-readInput = () => {
-  string = input.value;
-  validate(string);
-};
-
-input.addEventListener('input', readInput);
+binaryInput.addEventListener('input', convert);
