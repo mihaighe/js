@@ -1,45 +1,116 @@
-const request = indexedDB.open('library');
+const loadDatabaseButton = document.querySelector('.load-database');
+const addPlebButton = document.querySelector('.add-pleb');
+const getPlebsButton = document.querySelector('.get-plebs');
+
+const nameInput = document.querySelector('.name');
+const languageInput = document.querySelector('.language');
+const experienceInput = document.querySelector('.experience');
+const statusInput = document.querySelector('.status');
+const plebForm = document.querySelector('.pleb');
+
 let db;
 
-request.onupgradeneeded = function () {
-  // The database did not previously exist, so create object stores and indexes.
-  const db = request.result;
-  const store = db.createObjectStore('books', { keyPath: 'isbn' });
-  const titleIndex = store.createIndex('by_title', 'title', { unique: true });
-  const authorIndex = store.createIndex('by_author', 'author');
+let friends = [
+  {
+    name: 'Mihai Gheorghe',
+    favourite_programming_language: 'Javascript',
+    coding_experience: 3,
+    status: 'pleb',
+    id: 12455,
+  },
+  {
+    name: 'Razvan Dicu',
+    favourite_programming_language: 'Javascript',
+    coding_experience: 7,
+    status: 'burgher',
+    id: 21599,
+  },
+];
 
-  console.log('Upgrade');
-  // Populate with initial data.
-  store.put({ title: 'Quarry Memories', author: 'Fred', isbn: 123456 });
-  store.put({ title: 'Water Buffaloes', author: 'Fred', isbn: 234567 });
-  store.put({ title: 'Bedrock Nights', author: 'Barney', isbn: 345678 });
+const loadDatabase = () => {
+  const request = indexedDB.open('the-plebeians');
+
+  request.onupgradeneeded = () => {
+    db = request.result;
+    let store = db.createObjectStore('plebs', { keyPath: 'id' });
+    store.createIndex('by_name', 'name', { unique: true });
+    store.createIndex(
+      'by_favourite_programming_language',
+      'favourite_programming_language'
+    );
+    store.createIndex('by_coding_experience', 'coding_experience');
+    store.createIndex('by_status', 'status');
+
+    store.put(friends[0]);
+    store.put(friends[1]);
 };
 
-request.onsuccess = function () {
+  request.onsuccess = () => {
   db = request.result;
+    addPlebButton.disabled = false;
+    getPlebsButton.disabled = false;
+    loadDatabaseButton.disabled = true;
 };
 
-const button = document.querySelector('.test');
+  request.onerror = () => {
+    console.error('Database initialization failed');
+  };
+};
 
-button.addEventListener('click', () => {
-  let tx = db.transaction('books', 'readwrite');
+const addPleb = (pleb) => {
+  let transaction = db.transaction('plebs', 'readwrite');
 
-  tx.onerror = (err) => {
-    console.warn(err);
+  transaction.onerror = (error) => {
+    console.error(error);
   };
 
-  tx.oncomplete = (ev) => {
-    console.log(ev);
+  transaction.oncomplete = (event) => {
+    console.log(event);
   };
 
-  let book = { title: 'sss Memories', author: 'Frd', isbn: 123455 };
-  let store = tx.objectStore('books');
-  let req = store.add(book);
+  let store = transaction.objectStore('plebs');
+  let addRequest = store.add(pleb);
 
-  req.onsuccess = (ev) => {
-    console.log('successfully added an object');
+  addRequest.onsuccess = (event) => {
+    console.log('successfully added a pleb');
   };
-  req.onerror = (err) => {
-    console.log('error in request to add');
+  addRequest.onerror = (error) => {
+    console.log('error in adding the pleb');
   };
+  };
+
+const getAllPlebs = () => {
+  let transaction = db.transaction('plebs', 'readwrite');
+  let store = transaction.objectStore('plebs');
+
+  // Get everything in the store;
+  let keyRange = IDBKeyRange.lowerBound(0);
+  let cursorRequest = store.openCursor(keyRange);
+
+  cursorRequest.onsuccess = function (e) {
+    let result = e.target.result;
+    if (!!result == false) return;
+
+    console.log(result.value);
+    result.continue();
+  };
+
+  alert('Check your console!');
+  };
+
+loadDatabaseButton.addEventListener('click', loadDatabase);
+getPlebsButton.addEventListener('click', getAllPlebs);
+
+plebForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  let pleb = {
+    name: nameInput.value,
+    favourite_programming_language: languageInput.value,
+    coding_experience: experienceInput.value,
+    status: statusInput.value,
+    id: Math.floor(Math.random() * 100000),
+  };
+
+  addPleb(pleb);
 });
