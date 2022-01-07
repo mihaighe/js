@@ -1,16 +1,16 @@
 const loadDatabaseButton = document.querySelector('.load-database');
 const addPlebButton = document.querySelector('.add-pleb');
-const getPlebsButton = document.querySelector('.get-plebs');
 
 const nameInput = document.querySelector('.name');
 const languageInput = document.querySelector('.language');
 const experienceInput = document.querySelector('.experience');
 const statusInput = document.querySelector('.status');
 const plebForm = document.querySelector('.pleb');
+const plebTable = document.querySelector('.pleb-table');
 
-let db;
+const deleteButtons = document.getElementsByClassName('delete-button');
 
-let friends = [
+const initialData = [
   {
     name: 'Mihai Gheorghe',
     favourite_programming_language: 'Javascript',
@@ -27,6 +27,31 @@ let friends = [
   },
 ];
 
+const tableHeader = `<tr>
+  <th>Name</th>
+  <th>Favourite Programming Language</th>
+  <th>Coding Experience</th>
+  <th>Status</th>
+  <th>Action</th>
+</tr>`;
+
+let db;
+
+const submitForm = (event) => {
+  event.preventDefault();
+
+  // create data object according to database model
+  let pleb = {
+    name: nameInput.value,
+    favourite_programming_language: languageInput.value,
+    coding_experience: experienceInput.value,
+    status: statusInput.value,
+    id: Math.floor(Math.random() * 100000),
+  };
+
+  addPleb(pleb);
+};
+
 const loadDatabase = () => {
   const request = indexedDB.open('the-plebeians');
 
@@ -41,16 +66,16 @@ const loadDatabase = () => {
     store.createIndex('by_coding_experience', 'coding_experience');
     store.createIndex('by_status', 'status');
 
-    store.put(friends[0]);
-    store.put(friends[1]);
-};
+    store.put(initialData[0]);
+    store.put(initialData[1]);
+  };
 
   request.onsuccess = () => {
-  db = request.result;
+    db = request.result;
     addPlebButton.disabled = false;
-    getPlebsButton.disabled = false;
     loadDatabaseButton.disabled = true;
-};
+    getAllPlebs();
+  };
 
   request.onerror = () => {
     console.error('Database initialization failed');
@@ -72,45 +97,68 @@ const addPleb = (pleb) => {
   let addRequest = store.add(pleb);
 
   addRequest.onsuccess = (event) => {
+    getAllPlebs();
     console.log('successfully added a pleb');
   };
   addRequest.onerror = (error) => {
     console.log('error in adding the pleb');
   };
-  };
+};
 
 const getAllPlebs = () => {
+  plebTable.innerHTML = tableHeader;
+
   let transaction = db.transaction('plebs', 'readwrite');
   let store = transaction.objectStore('plebs');
 
-  // Get everything in the store;
   let keyRange = IDBKeyRange.lowerBound(0);
   let cursorRequest = store.openCursor(keyRange);
 
-  cursorRequest.onsuccess = function (e) {
-    let result = e.target.result;
+  cursorRequest.onsuccess = (event) => {
+    let result = event.target.result;
     if (!!result == false) return;
 
-    console.log(result.value);
+    renderPlebs(result.value);
     result.continue();
   };
+};
 
-  alert('Check your console!');
-  };
+const renderPlebs = (pleb) => {
+  var tr = document.createElement('tr');
+
+  for (property in pleb) {
+    if (property == 'id') {
+      var td = document.createElement('td');
+      var button = document.createElement('button');
+      button.classList.add(`${pleb[property]}`, 'delete-button');
+      td.appendChild(button);
+      tr.appendChild(td);
+    } else {
+      var td = document.createElement('td');
+      var text = document.createTextNode(`${pleb[property]}`);
+      td.appendChild(text);
+      tr.appendChild(td);
+    }
+  }
+
+  plebTable.appendChild(tr);
+};
 
 loadDatabaseButton.addEventListener('click', loadDatabase);
-getPlebsButton.addEventListener('click', getAllPlebs);
+plebForm.addEventListener('submit', submitForm);
 
-plebForm.addEventListener('submit', (event) => {
-  event.preventDefault();
+// const deletePleb = (id) => {
+//   var db = html5rocks.indexedDB.db;
+//   var trans = db.transaction(['todo'], 'readwrite');
+//   var store = trans.objectStore('todo');
 
-  let pleb = {
-    name: nameInput.value,
-    favourite_programming_language: languageInput.value,
-    coding_experience: experienceInput.value,
-    status: statusInput.value,
-    id: Math.floor(Math.random() * 100000),
-  };
+//   var request = store.delete(id);
 
-  addPleb(pleb);
-});
+//   request.onsuccess = function (e) {
+//     html5rocks.indexedDB.getAllTodoItems();
+//   };
+
+//   request.onerror = function (e) {
+//     console.log('Error Adding: ', e);
+//   };
+// };
