@@ -8,23 +8,64 @@
     <link rel="icon" href="src/icon.png" />
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <button class="load-database">Load Database</button>
+    <div class="pillar left">
+      <img src="src/pillar.png" alt="pillar" class="pillar-base" />
+      <img src="src/fire.gif" alt="fire" class="pillar-fire" />
+    </div>
+    <div class="pillar right">
+      <img src="src/pillar.png" alt="pillar" class="pillar-base" />
+      <img src="src/fire.gif" alt="fire" class="pillar-fire" />
+    </div>
+    <img src="./src/plebs.gif" alt="plebs" class="plebs" />
+    <img src="./src/burgesses.png" alt="burgesses" class="burgesses" />
+    <div class="border-container"></div>
 
-    <form class="pleb">
-      <label for="name">Name</label>
-      <input type="text" class="name" required />
-      <label for="language">Favourite Programming Language</label>
-      <input type="text" class="language" required />
-      <label for="experience">Coding Experience</label>
-      <input type="text" class="experience" required />
-      <label for="status">Pleb or Burgher?</label>
-      <input type="text" class="status" required />
-      <button class="add-pleb" disabled>Add Pleb</button>
-    </form>
+    <div>
+      <button class="button load-database">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="button add-pleb" disabled>
+        <i class="fas fa-plus-square"></i>
+      </button>
+    </div>
+
     <table>
-      <tbody class="pleb-table"></tbody>
+      <tbody class="pleb-table faded-out"></tbody>
     </table>
+
+    <div class="add-modal faded-out">
+      <form class="pleb">
+        <label for="name">Name</label>
+        <input type="text" class="name" required />
+        <label for="language">Favourite Programming Language</label>
+        <input type="text" class="language" required />
+        <label for="experience">Coding Experience</label>
+        <input type="text" class="experience" required />
+        <label for="status">Pleb or Burgher?</label>
+        <input type="text" class="status" required />
+        <div class="add-button-container">
+          <button type="submit" class="add-put-pleb">Add</button>
+          <button type="button" class="hide-add-modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="delete-modal faded-out">
+      <div class="delete-container">
+        Are you sure?
+        <div class="delete-button-container">
+          <button class="delete-button">Delete</button>
+          <button class="hide-delete-modal">Maybe not</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

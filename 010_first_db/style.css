@@ -1,21 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Cinzel Decorative', cursive;
 }
 
 body {
+  position: relative;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   flex-direction: column;
 }
 
-button {
-  width: 10vw;
-  height: 3vw;
-  margin: 10px;
+.delete-modal,
+.add-modal {
+  width: 100vw;
+  height: 100vh;
+  border: 2px solid black;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  background: rgb(0 0 0 / 60%);
+  transition: opacity 300ms;
+  will-change: opacity;
+}
+
+.delete-container {
+  width: 23vw;
+  height: 9vw;
+  display: grid;
+  place-items: center;
+  background: white;
+  border-radius: 5px;
+  font-size: 1.5vw;
+  padding: 2vw;
+  font-weight: bold;
+}
+
+.delete-modal.faded-out,
+.add-modal.faded-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.delete-button-container > button,
+.add-button-container > button {
+  width: 7vw;
+  height: 2vw;
+  font-size: 1vw;
+  cursor: pointer;
+  background: none;
+  margin: 0px 10px;
+}
+
+.delete-button-container > :first-child:hover,
+.add-button-container > :first-child:hover {
+  background-color: rgb(243, 82, 82);
+}
+
+.delete-button-container > :first-child:hover,
+.add-button-container > :last-child:hover {
+  background-color: rgb(170, 170, 170);
+}
+
+.delete-button-container > :first-child:active,
+.add-button-container > :first-child:active {
+  background-color: red;
+}
+
+.delete-button-container > :last-child:active,
+.add-button-container > :last-child:active {
+  background-color: gray;
+}
+
+.add-button-container > :first-child:hover {
+  background-color: rgb(2, 168, 2);
+}
+
+.add-button-container > :first-child:active {
+  background-color: green;
 }
 
 form {
@@ -25,24 +92,124 @@ form {
   border: 2px solid black;
   padding: 50px;
   margin: 20px;
+  background-color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+form > button {
+  width: 3vw;
 }
 
 input {
-  margin: 3px;
+  margin-bottom: 3.5vw;
+  width: 17vw;
+  height: 2vw;
+  border: none;
+  outline: none;
+  text-align: center;
+  border-bottom: 1px solid black;
+  font-size: 1.3vw;
+  color: darkgray;
+  font-family: auto;
 }
 
 table {
   font-family: arial, sans-serif;
-  border-collapse: collapse;
+  border-spacing: 0px 20px;
+}
+
+.pleb-table {
+  transition: opacity 2000ms;
+  will-change: opacity;
+}
+
+.pleb-table.faded-out {
+  opacity: 0;
 }
 
 td,
 th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+  text-align: center;
+  text-align: center;
+  padding: 17px 17px;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
+tr {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.pillar {
+  position: absolute;
+  bottom: 9vw;
+  width: 8vw;
+  height: 17vw;
+}
+
+.pillar.left {
+  left: 15vw;
+}
+
+.pillar.right {
+  right: 15vw;
+}
+
+.pillar-base {
+  position: absolute;
+  width: 10vw;
+}
+
+.pillar-fire {
+  position: absolute;
+  width: 12vw;
+  left: -1.7vw;
+  top: -8vw;
+}
+
+/* .pillar-fire {
+  display: none;
+} */
+
+.border-container {
+  background-image: url(src/border.png);
+  background-repeat: repeat-x;
+  height: 5vw;
+  width: 100vw;
+  background-size: 120px;
+  position: absolute;
+  bottom: 5vw;
+}
+
+.burgesses {
+  position: absolute;
+  width: 11vw;
+  right: 5.3vw;
+  bottom: 9.8vw;
+}
+
+.plebs {
+  width: 14vw;
+  position: absolute;
+  left: 4vw;
+  bottom: 9.8vw;
+}
+
+.button {
+  margin: 20px 3px;
+  padding: 20px;
+  box-shadow: 5px 10px 10px #888888;
+}
+
+.fa-download,
+.fa-plus-square {
+  font-size: 50px;
+  cursor: pointer;
+}
+
+td > button {
+  border: none;
+  background: none;
+  font-size: 23px;
+  margin: 0px 5px;
+  cursor: pointer;
 }
