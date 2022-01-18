@@ -62,7 +62,7 @@ body {
   background-color: rgb(243, 82, 82);
 }
 
-.delete-button-container > :first-child:hover,
+.delete-button-container > :last-child:hover,
 .add-button-container > :last-child:hover {
   background-color: rgb(170, 170, 170);
 }
@@ -117,6 +117,8 @@ input {
 table {
   font-family: arial, sans-serif;
   border-spacing: 0px 20px;
+  overflow-y: scroll;
+  height: 100px;
 }
 
 .pleb-table {
@@ -212,4 +214,8 @@ td > button {
   font-size: 23px;
   margin: 0px 5px;
   cursor: pointer;
+}
+
+.id {
+  display: none;
 }

@@ -1,3 +1,4 @@
+const idInput = document.querySelector('.id');
 const nameInput = document.querySelector('.name');
 const languageInput = document.querySelector('.language');
 const experienceInput = document.querySelector('.experience');
@@ -54,6 +55,8 @@ const addPleb = (pleb) => {
     console.log('successfully added a pleb');
   };
   addRequest.onerror = (error) => {
+    console.log(error);
+    console.log(error.message);
     console.log('error in adding the pleb');
   };
 };
@@ -64,9 +67,19 @@ const getPleb = (id) => {
   let getRequest = store.get(parseInt(id));
 
   getRequest.onsuccess = (event) => {
-    console.log('successfully get a pleb');
-    let pleb = event.target.result;
-    return pleb;
+    let {
+      name,
+      status,
+      coding_experience,
+      favourite_programming_language,
+      id,
+    } = event.target.result;
+
+    nameInput.value = name;
+    statusInput.value = status;
+    experienceInput.value = coding_experience;
+    languageInput.value = favourite_programming_language;
+    idInput.value = id;
   };
   getRequest.onerror = (error) => {
     console.log('error in adding the pleb');
@@ -93,9 +106,8 @@ const getAllPlebs = () => {
 
 const updatePleb = (event) => {
   addPutPlebButton.innerText = 'Update';
-  showAddModal();
-
-  let id = event.target.parentElement.classList[0];
+  getPleb(event.target.parentElement.classList[0]);
+  addModal.classList.remove('faded-out');
 };
 
 const deletePleb = (event) => {
@@ -115,6 +127,12 @@ const deletePleb = (event) => {
 };
 
 const showAddModal = () => {
+  nameInput.value = '';
+  statusInput.value = '';
+  experienceInput.value = '';
+  languageInput.value = '';
+  idInput.value = Math.floor(Math.random() * 100000);
+  addPutPlebButton.innerText = 'Add';
   addModal.classList.remove('faded-out');
 };
 
@@ -176,7 +194,7 @@ const submitForm = (event) => {
     favourite_programming_language: languageInput.value,
     coding_experience: experienceInput.value,
     status: statusInput.value,
-    id: Math.floor(Math.random() * 100000),
+    id: parseInt(idInput.value),
   };
 
   addPleb(pleb);
@@ -188,7 +206,7 @@ const loadDatabase = () => {
   request.onupgradeneeded = () => {
     db = request.result;
     let store = db.createObjectStore('plebs', { keyPath: 'id' });
-    store.createIndex('by_name', 'name', { unique: true });
+    store.createIndex('by_name', 'name');
     store.createIndex(
       'by_favourite_programming_language',
       'favourite_programming_language'
