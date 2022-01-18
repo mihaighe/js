@@ -121,6 +121,16 @@ table {
   height: 100px;
 }
 
+tbody::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: gray;
+}
+
+tbody::-webkit-scrollbar-thumb {
+  background: black;
+}
+
 .pleb-table {
   transition: opacity 2000ms;
   will-change: opacity;
@@ -130,11 +140,29 @@ table {
   opacity: 0;
 }
 
+tbody {
+  display: block;
+  overflow-y: scroll;
+  height: 19.7vw;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: blue; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid orange; /* creates padding around scroll thumb */
+}
+
 td,
 th {
   text-align: center;
   text-align: center;
   padding: 17px 17px;
+}
+
+.header {
+  position: sticky;
+  top: 20px;
+  background-color: white;
 }
 
 tr {

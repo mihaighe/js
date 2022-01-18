@@ -27,15 +27,36 @@ const initialData = [
     id: 12455,
   },
   {
+    name: 'Patru Robert',
+    favourite_programming_language: 'Javascript',
+    coding_experience: 0.5,
+    status: 'pleb',
+    id: 51479,
+  },
+  {
+    name: 'Iancu Marius Robert',
+    favourite_programming_language: 'Javascript',
+    coding_experience: 0.5,
+    status: 'pleb',
+    id: 15479,
+  },
+  {
     name: 'Razvan Dicu',
     favourite_programming_language: 'Javascript',
     coding_experience: 7,
     status: 'burgess',
     id: 21599,
   },
+  {
+    name: 'Ilie Vlad',
+    favourite_programming_language: 'Javascript',
+    coding_experience: 0.5,
+    status: 'pleb',
+    id: 154789,
+  },
 ];
 
-const tableHeader = `<tr>
+const tableHeader = `<tr class='header'>
   <th>Name</th>
   <th>Programming Language</th>
   <th>Coding Experience</th>
@@ -214,8 +235,9 @@ const loadDatabase = () => {
     store.createIndex('by_coding_experience', 'coding_experience');
     store.createIndex('by_status', 'status');
 
-    store.put(initialData[0]);
-    store.put(initialData[1]);
+    initialData.forEach((data) => {
+      store.put(data);
+    });
   };
 
   request.onsuccess = () => {
