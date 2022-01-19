@@ -7,6 +7,8 @@ const plebForm = document.querySelector('.pleb');
 const plebTable = document.querySelector('.pleb-table');
 
 const loadDatabaseButton = document.querySelector('.load-database');
+const reloadDatabaseButton = document.querySelector('.reload-database');
+
 const addPlebButton = document.querySelector('.add-pleb');
 
 const addPutPlebButton = document.querySelector('.add-put-pleb');
@@ -52,7 +54,21 @@ const initialData = [
     favourite_programming_language: 'Javascript',
     coding_experience: 0.5,
     status: 'pleb',
-    id: 154789,
+    id: 15489,
+  },
+  {
+    name: 'Simion Ionut',
+    favourite_programming_language: 'Dota',
+    coding_experience: 10,
+    status: 'burgess',
+    id: 88989,
+  },
+  {
+    name: 'Casota Robert',
+    favourite_programming_language: 'Counter Strike',
+    coding_experience: 15,
+    status: 'burgess',
+    id: 65678,
   },
 ];
 
@@ -61,7 +77,7 @@ const tableHeader = `<tr class='header'>
   <th>Programming Language</th>
   <th>Coding Experience</th>
   <th>Status</th>
-  <th>Action</th>
+  <th>Update or Delete</th>
 </tr>`;
 
 let db;
@@ -235,14 +251,13 @@ const loadDatabase = () => {
     store.createIndex('by_coding_experience', 'coding_experience');
     store.createIndex('by_status', 'status');
 
-    initialData.forEach((data) => {
-      store.put(data);
-    });
+    initialData.forEach((data) => store.put(data));
   };
 
   request.onsuccess = () => {
     db = request.result;
     addPlebButton.disabled = false;
+    reloadDatabaseButton.disabled = false;
     loadDatabaseButton.disabled = true;
     getAllPlebs();
 
@@ -254,6 +269,21 @@ const loadDatabase = () => {
   };
 };
 
+const deleteDatabase = () => {
+  db.close();
+
+  var request = indexedDB.deleteDatabase('the-plebeians');
+  request.onsuccess = function () {
+    loadDatabase();
+    console.log('Deleted database successfully');
+  };
+  request.onerror = function () {
+    console.log("Couldn't delete database");
+  };
+  request.onblocked = function () {
+    console.log("Couldn't delete database due to the operation being blocked");
+  };
+};
 const makeStore = (storeName, mode) => {
   let transaction = db.transaction(storeName, mode);
   transaction.onerror = (error) => {
@@ -269,6 +299,7 @@ const makeStore = (storeName, mode) => {
 };
 
 loadDatabaseButton.addEventListener('click', loadDatabase);
+reloadDatabaseButton.addEventListener('click', deleteDatabase);
 addPlebButton.addEventListener('click', showAddModal);
 deleteButton.addEventListener('click', deletePleb);
 hideDeleteModalButton.addEventListener('click', hideDeleteModal);

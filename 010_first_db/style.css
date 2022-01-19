@@ -118,7 +118,6 @@ table {
   font-family: arial, sans-serif;
   border-spacing: 0px 20px;
   overflow-y: scroll;
-  height: 100px;
 }
 
 tbody::-webkit-scrollbar {
@@ -144,6 +143,7 @@ tbody {
   display: block;
   overflow-y: scroll;
   height: 19.7vw;
+  padding: 5px;
 }
 
 body::-webkit-scrollbar-thumb {
@@ -156,13 +156,14 @@ td,
 th {
   text-align: center;
   text-align: center;
-  padding: 17px 17px;
+  padding: 0.8vw 0.7vw;
 }
 
 .header {
-  position: sticky;
-  top: 20px;
   background-color: white;
+  position: sticky;
+  top: -2px;
+  box-shadow: black 0px 0px 4px 2px;
 }
 
 tr {
@@ -193,7 +194,7 @@ tr {
   position: absolute;
   width: 12vw;
   left: -1.7vw;
-  top: -8vw;
+  top: -7.9vw;
 }
 
 /* .pillar-fire {
@@ -231,7 +232,8 @@ tr {
 }
 
 .fa-download,
-.fa-plus-square {
+.fa-plus-square,
+.fa-sync-alt {
   font-size: 50px;
   cursor: pointer;
 }
@@ -246,4 +248,56 @@ td > button {
 
 .id {
   display: none;
+}
+
+@media (max-width: 1440px) {
+  table {
+    width: 55vw;
+  }
+
+  tbody {
+    height: 30vw;
+  }
+}
+
+@media (max-width: 800px) {
+  .border-container {
+    height: 15vw;
+  }
+
+  .plebs,
+  .burgesses {
+    display: none;
+  }
+
+  .pillar {
+    height: 43vw;
+  }
+
+  .pillar-base {
+    width: 20vw;
+  }
+
+  .pillar-fire {
+    position: absolute;
+    width: 23vw;
+    left: -2.8vw;
+    top: -15vw;
+  }
+
+  .pillar.left {
+    left: 7.5vw;
+  }
+
+  table {
+    font-size: 3.2vw;
+  }
+
+  tbody {
+    height: 65vw;
+  }
+
+  .header {
+    top: -4px;
+  }
 }
