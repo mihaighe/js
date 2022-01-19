@@ -89,12 +89,14 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   border: 2px solid black;
   padding: 50px;
   margin: 20px;
   background-color: white;
   font-size: 18px;
   font-weight: bold;
+  text-align: center;
 }
 
 form > button {
@@ -261,6 +263,11 @@ td > button {
 }
 
 @media (max-width: 800px) {
+  body {
+    justify-content: flex-start;
+    overflow-y: hidden;
+  }
+
   .border-container {
     height: 15vw;
   }
@@ -294,10 +301,39 @@ td > button {
   }
 
   tbody {
-    height: 65vw;
+    height: 100vw;
+  }
+
+  tr {
+    background-color: white;
   }
 
   .header {
     top: -4px;
+  }
+
+  form {
+    height: 65vh;
+    padding: 5vw;
+  }
+
+  input {
+    width: 50vw;
+    height: 7vw;
+    font-size: 4vw;
+    margin-bottom: 10vw;
+  }
+
+  .add-button-container > button,
+  .delete-button-container > button {
+    width: 27vw;
+    height: 9vw;
+    font-size: 4vw;
+  }
+
+  .delete-container {
+    width: 75vw;
+    height: 35vw;
+    font-size: 5.5vw;
   }
 }
