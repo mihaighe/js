@@ -33,14 +33,14 @@ const initialData = [
     favourite_programming_language: 'Javascript',
     coding_experience: 0.5,
     status: 'pleb',
-    id: 51479,
+    id: 11479,
   },
   {
     name: 'Iancu Marius Robert',
     favourite_programming_language: 'Javascript',
     coding_experience: 0.5,
     status: 'pleb',
-    id: 15479,
+    id: 25479,
   },
   {
     name: 'Razvan Dicu',
@@ -54,7 +54,7 @@ const initialData = [
     favourite_programming_language: 'Javascript',
     coding_experience: 0.5,
     status: 'pleb',
-    id: 15489,
+    id: 45489,
   },
   {
     name: 'Simion Ionut',
