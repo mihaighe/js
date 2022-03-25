@@ -10,3 +10,5 @@
 | JsonToCsv                                               | [link](https://mihaighe-jsontocsv.netlify.app/)  |
 | Dollars to Coins                                        | [link](https://mihaighe-dollars.netlify.app/)    |
 | Dynamic CSS Variables                                   | [link](https://mihaighe-dynamic.netlify.app/)    |
+| Index DB                                                | [link](https://mihaighe-indexdb.netlify.app/)    |
+| Image Flip                                              | [link](https://mihaighe-flip.netlify.app/)       |
