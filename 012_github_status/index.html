@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Status</title>
+    <link rel="icon" href="src/icon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="navigation-bar">
+      <div class="links-container">
+        <img class="github-logo" src="./src/git.png" alt="github_logo" />
+        <input
+          class="search-bar"
+          type="text"
+          placeholder="Search or jump to..."
+        />
+        <div class="nav-link">Pull Requests</div>
+        <div class="nav-link">Issues</div>
+        <div class="nav-link">Marketplace</div>
+        <div class="nav-link">Explore</div>
+      </div>
+      <div class="user-container">
+        <i class="far fa-bell"></i>
+        <div class="plus-container">
+          <i class="fas fa-plus"></i>
+          <i class="fas fa-caret-down"></i>
+        </div>
+        <div class="small-avatar-container">
+          <img class="avatar avatar-small" src="./src/avatar.jpg" />
+          <i class="fas fa-caret-down"></i>
+        </div>
+      </div>
+    </div>
+    <div class="app-container">
+      <div class="avatar-container">
+        <img class="avatar" src="./src/avatar.jpg" alt="avatar" />
+        <div class="status">🐐</div>
+      </div>
+      <div class="content-container">
+        <div class="contributions-container">
+          <div class="contributions-header">
+            <div class="contributions-info">
+              99 contributions in the last year
+            </div>
+            <div class="contributions-settings">
+              Contributions settings &#x25BC;
+            </div>
+          </div>
+          <div class="calendar-container">
+            <!-- <div class="calendar-graph"></div>
+            <div class="calendar-info"></div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <button class="request-button">Press me</button> -->
+  </body>
+</html>

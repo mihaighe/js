@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+.navigation-bar {
+  width: 100vw;
+  height: 6.5vh;
+  background-color: rgb(22, 27, 34);
+  color: white;
+  padding: 0 1.7vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-container {
+  background-color: rgb(13, 17, 23);
+  height: 101vh;
+  width: 100vw;
+
+  padding: 2.5vw 18vw;
+  display: flex;
+}
+
+.avatar-container {
+  position: relative;
+  width: 16vw;
+  height: 16vw;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 300px;
+}
+
+.status {
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.219);
+  background-color: rgb(13, 17, 23);
+
+  border-radius: 50%;
+  width: 2.5vw;
+  height: 2.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-container {
+  width: 48vw;
+}
+
+.contributions-container {
+  height: 10vw;
+  padding: 0.5vw;
+}
+
+.contributions-header {
+  height: 2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.calendar-container {
+  height: 8vw;
+  border: 1px solid rgba(243, 238, 238, 0.178);
+  border-radius: 10px;
+}
+
+.github-logo {
+  filter: invert(0.7);
+  width: 1.65vw;
+}
+
+.links-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  outline: none;
+  margin: 0px 20px;
+  padding: 4px 10px;
+  border: 1px solid rgba(243, 238, 238, 0.178);
+  border-radius: 5px;
+  background-color: rgb(13, 17, 23);
+  color: white;
+  font-size: 13px;
+  width: 14vw;
+  font-weight: 900;
+}
+
+::placeholder {
+  color: rgb(165, 195, 186);
+  opacity: 1;
+}
+
+.nav-link {
+  color: white;
+  padding: 0px 7px;
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.avatar-small {
+  width: 1vw;
+}
+
+.user-container {
+  display: flex;
+  width: 6vw;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fa-bell {
+  padding-right: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 17px;
+  background: rgb(66, 66, 66);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(104, 104, 104);
+
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.small-avatar-container {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  width: 30px;
+  justify-content: space-between;
+}
+
+.fa-caret-down {
+  font-size: 13px;
+}
+
+.plus-container {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  width: 30px;
+  justify-content: space-between;
+}
+
+.fa-plus {
+  font-size: 10px;
+}
